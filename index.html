@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <link rel="stylesheet" href="/styles/main.css" />
+  </head>
+  <body>
+    <div class="paleta">
+      <button class="button" id="button">Logo</button>
+      <div class="primario"></div>
+      <div class="secundario"></div>
+      <div class="terciario"></div>
+    </div>
+    <script>
+      window.CSS.registerProperty({
+        name: "--primario",
+        syntax: "<color>",
+        inherits: true,
+        initialValue: "#ffd924"
+      })
+      window.CSS.registerProperty({
+        name: "--secundario",
+        syntax: "<color>",
+        inherits: true,
+        initialValue: "#e5961d"
+      })
+      window.CSS.registerProperty({
+        name: "--terciario",
+        syntax: "<color>",
+        inherits: true,
+        initialValue: "#cf4310"
+      })
+      
+      const button = document.querySelector(".button");
+      const body = document.querySelector("body") 
+
+      button.onclick = function(){
+          body.classList.toggle("add-shadow")
+      }
+
+      button.addEventListener('click', () => {
+        updateProperties(['#71bfb1', '#5fa195', '#c55d00'])
+      })
+
+      function updatePropeties(colors) {
+        document.body.style.setProperty('--primario', colors[0])
+        document.body.style.setProperty('--secundario', colors[1])
+        document.body.style.setProperty('--terciario', colors[2])
+      }
+    </script>
+  </body>
+</html>
